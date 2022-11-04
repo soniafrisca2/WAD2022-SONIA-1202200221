@@ -25,7 +25,7 @@
         </nav>
     </section>
     <?php
-        $name = isset($_GET['nama']) ? $_GET['nama'] : '-';
+        $nama = isset($_GET['nama']) ? $_GET['nama'] : '-';
         $date = isset($_GET['inputTanggal']) ? $_GET['inputTanggal'] : '-';
         $time = isset($_GET['inputTime']) ? $_GET['inputTime'] : '-';
         $duration = isset($_GET['inputdurasi']) ? $_GET['inputdurasi'] : '-';
@@ -56,7 +56,7 @@
                     <td><?php echo date("H:i", $checkout) ?></td>
                     <td><?php echo $car ?></td>
                     <td><?php echo $phone ?></td>
-                    <td><?php echo $service ?></td>
+                    <td><?php echo $services ?></td>
                 </tr>
             </tbody>
         </table>
