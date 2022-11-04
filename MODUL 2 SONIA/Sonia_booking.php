@@ -103,7 +103,7 @@
                         </div>
                         <div class="mb-3">
                             <div class="col-sm-12 py-3">
-                                <buon style="width:90%;background-color:green;color:white;"  type="submit" class="btn btn-outline-primary btn-center">Book</buon>
+                                <button style="width:90%;background-color:green;color:white;"  type="submit" class="btn btn-outline-primary btn-center">Book</button>
                             </div>
                         </div>
                     </form>
