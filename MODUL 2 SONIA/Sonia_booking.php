@@ -111,6 +111,8 @@
             </div>
         </div>
     </section>
-    <div class="footer">Created by Sonia_1202200221</div>
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        Created by Sonia_1202200221
+    </div>
 </body>
 </html>

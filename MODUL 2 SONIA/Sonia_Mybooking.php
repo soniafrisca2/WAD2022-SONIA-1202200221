@@ -25,7 +25,7 @@
         </nav>
     </section>
     <?php
-        $nama = isset($_GET['nama']) ? $_GET['nama'] : '-';
+        $name = isset($_GET['nama']) ? $_GET['nama'] : '-';
         $date = isset($_GET['inputTanggal']) ? $_GET['inputTanggal'] : '-';
         $time = isset($_GET['inputTime']) ? $_GET['inputTime'] : '-';
         $duration = isset($_GET['inputdurasi']) ? $_GET['inputdurasi'] : '-';
@@ -51,7 +51,7 @@
             <tbody>
                 <tr>
                     <th scope="row"><?php echo(rand(0,999999) . "<br>");?></th>
-                    <td><?php echo $nama ?></td>
+                    <td><?php echo $name ?></td>
                     <td><?php echo $date . " " . $time?></td>
                     <td><?php echo date("H:i", $checkout) ?></td>
                     <td><?php echo $car ?></td>
@@ -62,7 +62,7 @@
         </table>
     </section>
     
-    <div class="text-center p-4" class="footer" style="background-color: rgba(0, 0, 0, 0.05);">
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
         Created by Sonia_1202200221
     </div>
 </body>
