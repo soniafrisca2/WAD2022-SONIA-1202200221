@@ -1,5 +1,5 @@
 <?php
 
-require 'Pages/Sonia_home.php';
+    require 'Pages/Sonia-home.php';
 
 ?>

@@ -16,8 +16,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav navbar-dark">
-            <a class="nav-link active" aria-current="page" href="Sonia_home.php">Home</a>
-            <a class="nav-link active" href="Sonia_Listcar.php">MyCar</a>
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+            <a class="nav-link active" href="Sonia_Add.php">MyCar</a>
         </div>
         </div>
     </div>
@@ -28,13 +28,46 @@
         <div class="row">
             <h3 align="left">My Show Room</h3>
             <p align="left">List Show Room Sonia-1202200221</p>
-            
-    <!-- CARD -->
-    <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="Sonia_Detail.php" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <?php
+
+        include('../Config/connector.php');
+        $data = mysqli_query($connect,"SELECT * FROM `modul3`");
+        $jumlahdata = mysqli_num_rows($data);
+
+
+
+
+            while ($datamobil = mysqli_fetch_array($data)){
+            ?>
+            <br/>
+                <div class="container"> 
+                    <div class="card" style="width: 18rem;">
+                    <img src="../Assets/Image/<?php echo $datamobil['foto_mobil'];?>" class="card-img-top" alt="mobil">    
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $datamobil['nama_mobil'];?></h5>
+                            <h5 class="card-title"><?= $datamobil['id_mobil'];?></h5>
+                            <p class="card-text"><?= $deskripsi = $datamobil['deskripsi'];
+                            echo $deskripsi;?></p>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="Sonia-Detail.php?id_mobil=<?php echo $datamobil['id_mobil']; ?>" class="btn btn-primary">Detail</a>
+                                </div>
+
+                                <div class="col">
+                                    <a href="../Config/delete.php?id_mobil=<?php echo $datamobil['id_mobil']; ?>" class="btn btn-danger" name="id">Delete</a> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        <?php
+        }
+        ?>
     </div>
+    </body>
+</html>
+            
+    
+    

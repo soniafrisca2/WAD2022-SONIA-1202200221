@@ -1,3 +1,8 @@
+<?php
+    include_once('./config/connector.php');
+    $data = mysqli_query($connect,"SELECT id_mobil FROM `modul3`");
+    $jumlahdata = mysqli_num_rows($data);
+?>
 <!doctype html>
     <head>
         <meta charset="utf-8">
@@ -16,8 +21,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav navbar-dark">
-            <a class="nav-link active" aria-current="page" href="Sonia-home.php">Home</a>
-            <a class="nav-link active" href="Sonia-ListCar.php">MyCar</a>
+            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+            <?php
+                if ($jumlahdata == 0) {
+                    echo '<a class="nav-link active" href="pages/Sonia-Add.php">MyCar</a>';
+                } else {
+                    echo '<a class="nav-link active" href="pages/Sonia-ListCar.php">MyCar</a>';
+                }
+            ?>
         </div>
         </div>
     </div>
@@ -40,24 +51,32 @@
         <h1 class="text-start">Selamat Datang Di </br> Showroom Sonia</h1>
         <p class="text-start">At lacus vitae nulla sagittis scelerisque nisl. Pellentesque duis cursus vestibulum, facilisi ac, sed faucibus.</p>
         <br>
-            <!-- Button -->
-            <div class="col" align="left">
-                <button class="btn btn-primary btn-lg" type="button">MyCar</button>
-            </div></br>
+            <!-- button -->
             <br>
-        <div class="container text-center">
-            <div class="row">
+                <div class="text-start">
+                    <!-- <a href="Sonia-Add.php" class="btn btn-primary" role="button">MyCar</a><br> -->
+                    <?php
+                    if ($jumlahdata == 0) {
+                        echo '<a class="btn btn-primary " href="pages/Sonia-Add.php">MyCar</a>';
+                    } else {
+                        echo '<a class="btn btn-primary " href="pages/Sonia-ListCar.php">MyCar</a>';
+                    }
+                    
+                    ?>
+                </div>
+                <br>
                 <!-- kiri -->
             <div class="col" align="left">
             <img src="Assets/Image/logo-ead.png" alt="logo-ead" height="29" weidth="automatic">
-            sonia_1202200221
+            Sonia_1202200221
             </div>
-</div>
-    </div>
-    </div>
+        </div>
+
+
         <!-- Kanan -->
         <div class="col">
-        <img src="Assets/Image/Land Cruiser.jpg" class="rounded mx-auto d-block" alt="Land Cruiser" height="300" weidth="100">
+        <img src="Assets/Image/Land Cruiser.jpg" class="rounded mx-auto d-block" height="300" weidth="100">
         </div>
     </div>
     </div>
+</html>

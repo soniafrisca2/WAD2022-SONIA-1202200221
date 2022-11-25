@@ -1,5 +1,5 @@
 <?php
-    $host="localhost";
+    $host="localhost:3315";
     $user="root";
     $password="";
     $db="showroom_sonia_table";

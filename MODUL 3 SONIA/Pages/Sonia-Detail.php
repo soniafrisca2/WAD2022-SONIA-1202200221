@@ -17,63 +17,83 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav navbar-dark">
             <a class="nav-link active" aria-current="page" href="Sonia-home.php">Home</a>
-            <a class="nav-link active" href="Sonia-Listcar.php">MyCar</a>
+            <a class="nav-link active" href="Sonia-Add.php">MyCar</a>
         </div>
         </div>
     </div>
     </nav>
 </br>
     <!-- Grid -->
-    <div class="container text-center">
-        <div class="row">
-            <h3 align="left">Land Cruiser</h3>
-            <p align="left">Detail mobil Land Cruiser</p>
-            <div class="col">
-                <img src="../Assets/Image/Land Cruiser.jpg" class="rounded float-start" height="300px"width="automatic">
-            </div>
-           
-            <div class="col" align="left">
-            <form>
-                <div class="mb-2">
-                    <label for="NamaMobil" class="form-label"><strong>Nama Mobil</strong></label>
-                    <input type="text" class="form-control" id="NamaMobil">
-                </div>
-                <div class="mb-3">
-                    <label for="NamaPemilik" class="form-label"><strong>Nama Pemilik</strong></label>
-                    <input type="text" class="form-control" id="NamaPemilik">
-                </div>
-                <div class="mb-2">
-                    <label for="MerkMobil" class="form-label"><strong>Merk</strong></label>
-                    <input type="text" class="form-control" id="MerkMobil">
-                </div>
-                <div class="mb-3">
-                    <label for="TanggalBeli" class="form-label"><strong>Tanggal Beli</strong></label>
-                    <input type="text" class="form-control" id="TanggalBeli">
-                </div>
-                <div class="mb-3">
-                    <label for="DeskripsiMobil" class="form-label"><strong>Deskripsi</strong></label>
-                    <textarea class="form-control" id="DeskripsiMobil" rows="3"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="FotoMobil" class="form-label"><strong>Foto</strong></label>
-                    <input type="File" class="form-control" id="FotoMobil">
-                    </br>
-                <p><strong>Status Pembayaran</strong></p>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">Lunas</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">Belum Lunas</label></br>
-                </div></br>
-                </br>
-                <a class="btn btn-primary" href="#" role="button">Edit</a>
-                </form> 
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="container px-4 text-start">
+            <div class="row gx-5">
+                <div class="col">
+                    <div class="">
+                        <h1 class="text-start">Nama Mobil</h1>
+                        <p class="text-start text-muted">Detail Mobil</p>
+                        <br>
+                    </div>
 
+                    <?php
+                    include('../Config/connector.php');
+
+                    $idmobil = $_GET['id_mobil'];
+                    $data = mysqli_query($connect,"SELECT * FROM modul3 WHERE id_mobil = $idmobil");
+                    $jumlahdata = mysqli_num_rows($data);
+                    $detailMobil = mysqli_fetch_array($data) or die("line 50 not working");
+                    $foto = $detailMobil['foto_mobil'];
+
+                    ?>
+                        <div class="container text-start">
+                            <div class="row">
+                                <div class="col align-self-start">
+                                    <br>
+                                    <img src="../Assets/Image/<?php echo $detailMobil['foto_mobil'];?>" class ="rounded" alt="mobil" width="Automatic" height="310" >
+                                </div>
+                                <div class="col" align="left">
+                                    <form>
+                                        <div class="mb-2">
+                                            <label for="nama_mobil" class="form-label"><strong>Nama Mobil</strong></label>
+                                            <input type="text" class="form-control" id="nama_mobil">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="nama_pemilik" class="form-label"><strong>Nama Pemilik</strong></label>
+                                            <input type="text" class="form-control" id="nama_pemilik">
+                                        </div>
+                                        <div class="mb-2">
+                                            <label for="merk_mobil" class="form-label"><strong>Merk</strong></label>
+                                            <input type="text" class="form-control" id="merk_mobil">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="tanggal_beli" class="form-label"><strong>Tanggal Beli</strong></label>
+                                            <input type="text" class="form-control" id="tanggal_beli">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="deskripsi" class="form-label"><strong>Deskripsi</strong></label>
+                                            <textarea class="form-control" id="deskripsi" rows="3"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="foto_mobil" class="form-label"><strong>Foto</strong></label>
+                                            <input type="File" class="form-control" id="foto_mobil">
+                                            </br>
+                                        <p><strong>Status Pembayaran</strong></p>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">Lunas</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">Belum Lunas</label></br>
+                                                                </div></br>
+                                        </br>
+                                        <a class="btn btn-primary" href="#" role="button">Edit</a>
+                                        </form> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+    </div>
 </body>
 </html>

@@ -17,47 +17,51 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav navbar-dark">
             <a class="nav-link active" aria-current="page" href="Sonia-home.php">Home</a>
-            <a class="nav-link active" href="Sonia-ListCar.php">MyCar</a>
+            <a class="nav-link active" href="Sonia-Listcar.php">MyCar</a>
         </div>
         </div>
     </div>
     </nav>
 </br>
-    <!-- Grid -->
-    <div class="container text-center">
-        <div class="row">
-            <h3 align="left">Land Cruiser</h3>
-            <p align="left">Detail mobil Land Cruiser</p>
-            <!-- Kanan -->
-            <div class="col">
-                <img src="../Assets/Image/Land Cruiser.jpg" class="rounded float-start"height="300px"width="automatic" alt="Land Cruiser">
-            </div>
-            <!-- Kiri -->
-            <div class="col" align="left">
+            <div class="container px-4 text-start">
+                <div class="row gx-5">
+                    <div class="col">
+                        <?php
+
+                        include('../Config/connector.php');
+                        $data = mysqli_query($connect,"SELECT * FROM `modul3`");
+                        $jumlahdata = mysqli_num_rows($data);
+                        ?>
+
+                        <div class="">
+                            <h1 class="text-start">Nama Mobil</h1>
+                            <p class="text-start text-muted">Detail Mobil</p>
+                            <br>
+                        </div>
             <form>
                 <div class="mb-2">
-                    <label for="NamaMobil" class="form-label"><strong>Nama Mobil</strong></label>
-                    <input type="text" class="form-control" id="NamaMobil">
+                    <label for="nama_mobil" class="form-label"><strong>Nama Mobil</strong></label>
+                    <input type="text" class="form-control" id="nama_mobil">
                 </div>
                 <div class="mb-3">
-                    <label for="NamaPemilik" class="form-label"><strong>Nama Pemilik</strong></label>
-                    <input type="text" class="form-control" id="NamaPemilik">
+                    <label for="nama_pemilik" class="form-label"><strong>Nama Pemilik</strong></label>
+                    <input type="text" class="form-control" id="nama_pemilik">
                 </div>
                 <div class="mb-2">
-                    <label for="MerkMobil" class="form-label"><strong>Merk</strong></label>
-                    <input type="text" class="form-control" id="MerkMobil">
+                    <label for="merk_mobil" class="form-label"><strong>Merk</strong></label>
+                    <input type="text" class="form-control" id="merk_mobil">
                 </div>
                 <div class="mb-3">
-                    <label for="TanggalBeli" class="form-label"><strong>Tanggal Beli</strong></label>
-                    <input type="text" class="form-control" id="TanggalBeli">
+                    <label for="tanggal_beli" class="form-label"><strong>Tanggal Beli</strong></label>
+                    <input type="text" class="form-control" id="tanggal_beli">
                 </div>
                 <div class="mb-3">
-                    <label for="DeskripsiMobil" class="form-label"><strong>Deskripsi</strong></label>
-                    <textarea class="form-control" id="DeskripsiMobil" rows="3"></textarea>
+                    <label for="deskripsi" class="form-label"><strong>Deskripsi</strong></label>
+                    <textarea class="form-control" id="deskripsi" rows="3"></textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="FotoMobil" class="form-label"><strong>Foto</strong></label>
-                    <input type="File" class="form-control" id="FotoMobil">
+                    <label for="foto_mobil" class="form-label"><strong>Foto</strong></label>
+                    <input type="File" class="form-control" id="foto_mobil">
                     </br>
                 <p><strong>Status Pembayaran</strong></p>
                 <div class="form-check form-check-inline">

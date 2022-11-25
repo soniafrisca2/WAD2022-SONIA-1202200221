@@ -1,15 +1,13 @@
 <?php
-$connect = mysqli_connect("localhost:3315", "root", "", "modul3");
-$Listcar = $_GET["listcar"];
+include('../Config/connector.php');
 
-$query = "DELETE FROM modul3 WHERE nama_mobil = '$Listcar'";
+$id = $_GET['id_mobil'];
 
-mysqli_query($connect, $query);
+$sql = "DELETE FROM modul3 WHERE id_mobil = $id";
 
-echo "
-    <script>
-        alert('Data berhasil dihapus');
-        document.location.href = './index.php';
-    </script>";
-
-?>
+if (mysqli_query($connect, $sql)) {
+                echo "Record deleted successfully";
+        } else {
+                        echo "Error deleting record: " . mysqli_error($connect);
+                }       
+?>    

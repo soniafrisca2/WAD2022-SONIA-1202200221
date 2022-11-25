@@ -17,8 +17,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav navbar-dark">
-            <a class="nav-link active" aria-current="page" href="Sonia-home.php">Home</a>
-            <a class="nav-link active" href="Sonia-ListCar.php">MyCar</a>
+            <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
+            <a class="nav-link active" href="Sonia-Add.php">MyCar</a>
         </div>
         </div>
     </div>
@@ -39,46 +39,48 @@
                 <div class="text-secondary" align="left">Tambah Mobil baru anda ke list show room</div></br><br>
             </div>
             <!-- FORM -->
-            <form action=create.php method="post">
+            <form action="../Config/insert.php" method="post">
                 <div class="mb-2">
-                    <label for="namamobil" class="form-label"><strong>Nama Mobil</strong></label>
-                    <input type="text" class="form-control" id="namamobil" placeholder="Land Cruiser">
+                    <label for="nama_mobil" class="form-label"><strong>Nama Mobil</strong></label>
+                    <input type="text" class="form-control" id="nama_mobil" placeholder="Land Cruiser">
                 </div>
                 <div class="mb-3">
-                    <label for="namapemilik" class="form-label"><strong>Nama Pemilik</strong></label>
-                    <input type="text" class="form-control" id="namapemilik" placeholder="sonia-1202200221">
+                    <label for="nama_pemilik" class="form-label"><strong>Nama Pemilik</strong></label>
+                    <input type="text" class="form-control" id="nama_pemilik" placeholder="sonia-1202200221">
                 </div>
                 <div class="mb-2">
-                    <label for="merkmobil" class="form-label"><strong>Merk</strong></label>
-                    <input type="text" class="form-control" id="merkmobil" placeholder="Toyota">
+                    <label for="merk_mobil" class="form-label"><strong>Merk</strong></label>
+                    <input type="text" class="form-control" id="merk_mobil" placeholder="Toyota">
                 </div>
                 <div class="mb-3">
-                    <label for="tanggalbeli" class="form-label"><strong>Tanggal Beli</strong></label>
-                    <input type="date" class="form-control" id="tanggalbeli" placeholder="dd/mm/yyyy">
+                    <label for="tanggal_beli" class="form-label"><strong>Tanggal Beli</strong></label>
+                    <input type="date" class="form-control" id="tanggal_beli" placeholder="dd/mm/yyyy">
                 </div>
                 <div class="mb-3">
-                    <label for="deskripsimobil" class="form-label"><strong>Deskripsi</strong></label>
-                    <textarea class="form-control" id="deskripsimobil" rows="3" placeholder="The All-New Land Cruiser is the perfect misfit that will lead you to the edge of the world. The divine appearance is forged with attention to detailed craftsmanship, bringing a formidable and luxurious masterpiece capable of facing the brutal terrain off the road yetattracting every eye with a delightful sensation to spread a glamorous on-road lifestyle."></textarea>
+                    <label for="deskripsi" class="form-label"><strong>Deskripsi</strong></label>
+                    <textarea class="form-control" id="deskripsi" rows="3" placeholder="The All-New Land Cruiser is the perfect misfit that will lead you to the edge of the world. The divine appearance is forged with attention to detailed craftsmanship, bringing a formidable and luxurious masterpiece capable of facing the brutal terrain off the road yetattracting every eye with a delightful sensation to spread a glamorous on-road lifestyle."></textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="fotomobil" class="form-label"><strong>Foto</strong></label>
-                    <input type="File" class="form-control" id="fotomobil">
+                    <label for="foto_mobil" class="form-label"><strong>Foto</strong></label>
+                    <input type="File" class="form-control" id="foto_mobil">
                     </br>
                 <p><strong>Status Pembayaran</strong></p>
                 <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="statuspembayaran" value="option1">
-                <label class="form-check-label" for="statuspembayaran">Lunas</label>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="status_pembayaran" value="option1">
+                <label class="form-check-label" for="status_pembayaran">Lunas</label>
                 </div>
                 <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="statuspembayaran" value="option2">
-                <label class="form-check-label" for="statuspembayaran">Belum Lunas</label></br>
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="status_pembayaran" value="option2">
+                <label class="form-check-label" for="status_pembayaran">Belum Lunas</label></br>
                 </div>
                 </br>
                 </br>
-                <a class="btn btn-primary" href="#" role="button">Selesai</a>
+                <button type="submit" class="btn btn-primary" role="button" name="submit">Selesai</button>
                 </form> 
         </div>
     </div>
+    <?php
+
+    ?>
 </html>
-[]
 
