@@ -8,6 +8,13 @@
     <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
+    <?php
+    include('..\config\connector.php');
+    $query = mysqli_query($connect,"SELECT id_mobil FROM `modul3`");
+    $jumlah = mysqli_num_rows($query);
+    $masukkan = mysqli_query($connect, "SELECT * FROM `modul3`");
+    ?>
+    
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
@@ -29,45 +36,38 @@
             <h3 align="left">My Show Room</h3>
             <p align="left">List Show Room Sonia-1202200221</p>
         </div>
+        
         <?php
+        while ($isi = mysqli_fetch_array($masukkan)){
+        ?>
+        <br/>
+        <div class="container">
+        <div class="card" style="width: 18rem;">
+        <img src="../Assets/Image/<?php echo $isi['foto_mobil'];?>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><?= $isi['nama_mobil'];?></h5>
+                <p class="card-text"><?= $getDeskripsi = $isi['deskripsi'];
+                echo $getDeskripsi;?></p>
+                <div class="row">
+                <div class="col">
+                    <a href="./Sonia-Detail.php?id_mobil=<?php echo $isi['id_mobil']; ?>" class="btn btn-primary">Detail</a>
+                </div>
 
-        include('../Config/connector.php');
-        $data = mysqli_query($connect,"SELECT * FROM `modul3`");
-        $jumlahdata = mysqli_num_rows($data);
-
-
-
-
-            while ($datamobil = mysqli_fetch_array($data)){
-            ?>
-            <br/>
-                <div class="container"> 
-                    <div class="card" style="width: 18rem;">
-                    <img src="../Assets/Image/<?php echo $datamobil['foto_mobil'];?>" class="card-img-top" alt="mobil">    
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $datamobil['nama_mobil'];?></h5>
-                            <h5 class="card-title"><?= $datamobil['id_mobil'];?></h5>
-                            <p class="card-text"><?= $deskripsi = $datamobil['deskripsi'];
-                            echo $deskripsi;?></p>
-                            <div class="row">
-                                <div class="col">
-                                    <a href="Sonia-Detail.php?id_mobil=<?php echo $datamobil['id_mobil']; ?>" class="btn btn-primary">Detail</a>
-                                </div>
-
-                                <div class="col">
-                                    <a href="../Config/delete.php?id_mobil=<?php echo $datamobil['id_mobil']; ?>" class="btn btn-danger" name="id">Delete</a> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col">
+                    <a href="../config/delete.php?id_mobil=<?php echo $isi['id_mobil']; ?>" class="btn btn-danger" name="id_mobil">Delete</a> 
                 </div>
             </div>
-        <?php
-        }
-        ?>
+        </div>
+        </div>
     </div>
-    </body>
+</div>
+<?php
+}
+?>
+</div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
 </html>
-            
-    
-    
+
+        
