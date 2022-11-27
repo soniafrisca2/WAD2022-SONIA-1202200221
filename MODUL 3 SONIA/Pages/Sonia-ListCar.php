@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
     <?php
-    include('..\config\connector.php');
+    include('..\Config\connector.php');
     $query = mysqli_query($connect,"SELECT id_mobil FROM `modul3`");
     $jumlah = mysqli_num_rows($query);
     $masukkan = mysqli_query($connect, "SELECT * FROM `modul3`");
@@ -23,9 +23,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav navbar-dark">
-            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-            <a class="nav-link active" href="Sonia_Add.php">MyCar</a>
+            <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
+            <a class="nav-link active" href="../Pages/Sonia-ListCar.php">MyCar</a>
         </div>
+        </div>
+        <div class="d-flex">
+        <div class="navbar-nav navbar-dark">
+            <a class="nav-link active"  href="../Pages/Sonia-Add.php">Add Car</a>
         </div>
     </div>
     </nav>
@@ -42,6 +46,7 @@
         ?>
         <br/>
         <div class="container">
+        <div class = "card-columns">
         <div class="card" style="width: 18rem;">
         <img src="../Assets/Image/<?php echo $isi['foto_mobil'];?>" class="card-img-top" alt="...">
             <div class="card-body">
@@ -49,15 +54,15 @@
                 <p class="card-text"><?= $getDeskripsi = $isi['deskripsi'];
                 echo $getDeskripsi;?></p>
                 <div class="row">
-                <div class="col">
-                    <a href="./Sonia-Detail.php?id_mobil=<?php echo $isi['id_mobil']; ?>" class="btn btn-primary">Detail</a>
-                </div>
+                    <div class="col">
+                        <a href="../Pages/Sonia-Detail.php?id_mobil=<?php echo $isi['id_mobil']; ?>" class="btn btn-primary">Detail</a>
+                    </div>
 
-                <div class="col">
-                    <a href="../config/delete.php?id_mobil=<?php echo $isi['id_mobil']; ?>" class="btn btn-danger" name="id_mobil">Delete</a> 
+                    <div class="col">
+                        <a href="../Config/delete.php?id_mobil=<?php echo $isi['id_mobil']; ?>" class="btn btn-danger" name="id_mobil">Delete</a> 
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 </div>

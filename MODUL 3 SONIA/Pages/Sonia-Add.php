@@ -9,13 +9,6 @@
     <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-    <?php
-    include('..\config\connector.php');
-    $query = mysqli_query($connect,"SELECT id_mobil FROM `modul3`");
-    $jumlah = mysqli_num_rows($query);
-    $masukkan = mysqli_query($connect, "SELECT * FROM `modul3`");
-    ?>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
@@ -25,14 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav navbar-dark">
             <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
-            <?php
-                if ($jumlah == 0){
-                    echo '<a class="nav-link active" href=".\Sonia-Add.php">MyCar</a>';
-                }
-                else{
-                    echo '<a class="nav-link active" href=".\Sonia-ListCar.php">MyCar</a>';
-                }
-            ?>
+            <a class="nav-link active" href="Sonia-Add.php">MyCar</a>
         </div>
         </div>
     </div>
@@ -53,10 +39,10 @@
                 <div class="text-secondary" align="left">Tambah Mobil baru anda ke list show room</div></br><br>
             </div>
             <!-- FORM -->
-            <form action="insert.php" method="post">
+            <form action="insert.php" method="post" enctype="multipart/form-data">
                 <div class="mb-2">
                     <label for="nama_mobil" class="form-label"><strong>Nama Mobil</strong></label>
-                    <input type="text" class="form-control" id="nama_mobil" placeholder="Land Cruiser" name="namaMobil" >
+                    <input type="text" class="form-control" name="namaMobil" id="nama_mobil" placeholder="Land Cruiser" >
                 </div>
                 <div class="mb-3">
                     <label for="nama_pemilik" class="form-label"><strong>Nama Pemilik</strong></label>
@@ -89,7 +75,7 @@
                 </div>
                 </br>
                 </br>
-                <button type="submit" class="btn btn-primary" role="button" name="submit">Selesai</button>
+                <button type="submit" class="btn btn-primary" role="button" name="submit" href="../Pages/Sonia-ListCar.php" >Selesai</button>
                 </form> 
         </div>
     </div>

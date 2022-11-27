@@ -1,5 +1,5 @@
 <?php
-    include_once('./config/connector.php');
+    include_once('./Config/connector.php');
     $data = mysqli_query($connect,"SELECT id_mobil FROM `modul3`");
     $jumlahdata = mysqli_num_rows($data);
 ?>
