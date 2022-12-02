@@ -1,6 +1,5 @@
 <?php
 include ('../Config/connector.php');
-session_start();
  
 if (isset($_SESSION['email'])) {
     header("Location: Sonia-homeutama.php");
@@ -15,12 +14,12 @@ if (isset($_POST['submit'])) {
     $user= mysqli_fetch_array($result);
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
-        $_SESSION['email'] = $row['email'];
+        ['email'] = $row['email'];
         header("Location: Sonia-homeutama.php");
         echo "<script>alert('Berhasil Login')</script>";
         if($_POST['remember']== true) {
-          setsession("simpan_email", $_POST["email"], time()+(60*60));
-          setsession("simpan_password",$_POST["password"], time()+(60*60));
+          setcookie("simpan_email", $_POST["email"], time()+(60*60));
+          setcookie("simpan_password",$_POST["password"], time()+(60*60));
           $_SESSION['email'] = $email;
         }
     } else {
@@ -48,7 +47,7 @@ if (isset($_POST['submit'])) {
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" class="form-control" name="email" 
-                <?php if (isset($_SESSSION['simpan_email'])){
+                <?php if (isset($_COOKIE['simpan_email'])){
                   echo $_COOKIE['simpan_email'];
                 }
                 ?>>
