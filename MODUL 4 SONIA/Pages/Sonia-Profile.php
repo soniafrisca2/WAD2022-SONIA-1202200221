@@ -1,5 +1,5 @@
 <?php
-
+include('../Config/connector.php')
 ?>
 
 <!doctype html>

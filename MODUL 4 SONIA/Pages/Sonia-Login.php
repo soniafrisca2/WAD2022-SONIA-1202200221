@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     $user= mysqli_fetch_array($result);
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
-        ['email'] = $row['email'];
+        $row['email'] = ['email'];
         header("Location: Sonia-homeutama.php");
         echo "<script>alert('Berhasil Login')</script>";
         if($_POST['remember']== true) {

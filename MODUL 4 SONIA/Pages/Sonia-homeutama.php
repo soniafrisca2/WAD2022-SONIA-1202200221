@@ -30,7 +30,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="Sonia-Profile.php">Profile</a></li>
-          <li><a class="dropdown-item" href="./Config/logout.php">Logout</a></li>
+          <li><a class="dropdown-item" href="../Config/logout.php">Logout</a></li>
         </ul>
       </div>
     </div>
