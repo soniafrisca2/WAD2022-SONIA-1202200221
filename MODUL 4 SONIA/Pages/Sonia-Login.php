@@ -19,8 +19,8 @@ if (isset($_POST['submit'])) {
         header("Location: Sonia-homeutama.php");
         echo "<script>alert('Berhasil Login')</script>";
         if($_POST['remember']== true) {
-          setcookie("simpan_email", $_POST["email"], time()+(60*60));
-          setcookie("simpan_password",$_POST["password"], time()+(60*60));
+          setsession("simpan_email", $_POST["email"], time()+(60*60));
+          setsession("simpan_password",$_POST["password"], time()+(60*60));
           $_SESSION['email'] = $email;
         }
     } else {
@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" class="form-control" name="email" 
-                <?php if (isset($_COOKIE['simpan_email'])){
+                <?php if (isset($_SESSSION['simpan_email'])){
                   echo $_COOKIE['simpan_email'];
                 }
                 ?>>
