@@ -51,7 +51,7 @@
                 <div class="text-secondary" align="left">Tambah Mobil baru anda ke list show room</div></br><br>
             </div>
             <!-- FORM -->
-            <form action="/showrooms" method="post" enctype="multipart/form-data">
+            <form action="/Pages" method="post" enctype="multipart/form-data">
                 <div class="mb-2">
                     <label for="nama_mobil" class="form-label"><strong>Nama Mobil</strong></label>
                     <input type="text" class="form-control" name="namaMobil" id="nama_mobil" placeholder="Land Cruiser" >

@@ -13,8 +13,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/Register', function () {
+    return view('Register');
 });
 
-Route::get()
+Route::get('/Login', function () {
+    return view('Login.blade.php');
+});
+
+Route::get('/homeutama', function () {
+    return view('homeutama');
+});
+
+Route::get('/ListCar', function () {
+    return view('ListCar');
+});
+
+Route::get('/Add', function () {
+    return view('Add');
+});
+
+Route::get('/Detail', function () {
+    return view('Detail');
+});
+
+Route::get('/Edit', function () {
+    return view('Edit');
+});
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/Profile', function () {
+    return view('Profile');
+});
+
